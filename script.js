@@ -40,10 +40,10 @@ function game() {
   let playerScore = 0;
   let computerScore = 0;
   let i = 0;
-  let computerSelection;
+
   while (i < 5) {
     let playerSelection = prompt("Select rock, paper or scissors: ");
-    computerSelection = computerPlay();
+    let computerSelection = computerPlay();
     let round = playRound(computerSelection, playerSelection);
     console.log(round);
     if (round.includes("You win")) {
