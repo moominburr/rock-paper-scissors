@@ -42,7 +42,21 @@ function game() {
   let i = 0;
 
   while (i < 5) {
-    let playerSelection = prompt("Select rock, paper or scissors: ");
+    let playerSelection = prompt("Select rock, paper or scissors: ").toLowerCase();
+    let isNotVaild = true;
+    while (isNotVaild) {
+      if (
+        playerSelection != "rock" &&
+        playerSelection != "paper" &&
+        playerSelection != "scissors"
+      ) {
+        alert("Invalid choice, choose again.");
+        playerSelection = prompt("Select rock, paper or scissors: ").toLowerCase();
+        isNotVaild = true;
+      } else {
+        isNotVaild = false;
+      }
+    }
     let computerSelection = computerPlay();
     let round = playRound(computerSelection, playerSelection);
     console.log(round);
