@@ -3,9 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Lobster+Two:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <script src="/script.js"></script>
+    <div class="container">
+      <div class="heading"><h1>Rock Paper Scissors</h1></div>
+      <div class="icons">
+        <i class="fas fa-hand-rock hand-rock"></i><i class="fas fa-hand-paper hand-paper"></i
+        ><i class="fas fa-hand-scissors hand-scissors"></i>
+      </div>
+      <div class="display"></div>
+      <div class="btns">
+        <div class="btn-rock">Rock</div>
+        <div class="btn-paper">Paper</div>
+        <div class="btn-scissors">Scissors</div>
+      </div>
+      <div class="running-total"></div>
+    </div>
+    <div class="popup"></div>
   </body>
+  <script src="/script.js"></script>
+  <script src="https://kit.fontawesome.com/a139138623.js" crossorigin="anonymous"></script>
 </html>

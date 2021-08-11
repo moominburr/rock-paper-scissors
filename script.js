@@ -41,7 +41,7 @@ function game() {
   let computerScore = 0;
   let i = 0;
 
-  while (i < 5) {
+  
     let playerSelection = prompt("Select rock, paper or scissors: ").toLowerCase();
     let isNotVaild = true;
     while (isNotVaild) {
@@ -65,8 +65,7 @@ function game() {
     } else if (round.includes("You lose")) {
       computerScore++;
     }
-    i++;
-  }
+
   let winner;
   if (playerScore < computerScore) {
     winner = "the computer";
@@ -80,4 +79,4 @@ function game() {
   );
 }
 
-game();
+//game();
