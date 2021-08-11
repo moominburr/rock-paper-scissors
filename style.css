@@ -82,11 +82,27 @@ h1 {
           align-items: center;
 }
 
-.btns .btn-rock, .btns .btn-paper, .btns .btn-scissors {
+.btns .btn-rock,
+.btns .btn-paper,
+.btns .btn-scissors {
   border: 1px solid black;
   border-radius: 3px;
   padding: 1em 2em;
   font-family: "Comfortaa", cursive;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btns .btn-rock:hover,
+.btns .btn-paper:hover,
+.btns .btn-scissors:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  border-color: #ff2da0;
+  color: #ff2da0;
+  -webkit-box-shadow: 0 0 5px #ff2da0;
+          box-shadow: 0 0 5px #ff2da0;
 }
 
 .display {

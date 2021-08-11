@@ -41,30 +41,25 @@ function game() {
   let computerScore = 0;
   let i = 0;
 
-  
-    let playerSelection = prompt("Select rock, paper or scissors: ").toLowerCase();
-    let isNotVaild = true;
-    while (isNotVaild) {
-      if (
-        playerSelection != "rock" &&
-        playerSelection != "paper" &&
-        playerSelection != "scissors"
-      ) {
-        alert("Invalid choice, choose again.");
-        playerSelection = prompt("Select rock, paper or scissors: ").toLowerCase();
-        isNotVaild = true;
-      } else {
-        isNotVaild = false;
-      }
+  let playerSelection = prompt("Select rock, paper or scissors: ").toLowerCase();
+  let isNotVaild = true;
+  while (isNotVaild) {
+    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
+      alert("Invalid choice, choose again.");
+      playerSelection = prompt("Select rock, paper or scissors: ").toLowerCase();
+      isNotVaild = true;
+    } else {
+      isNotVaild = false;
     }
-    let computerSelection = computerPlay();
-    let round = playRound(computerSelection, playerSelection);
-    console.log(round);
-    if (round.includes("You win")) {
-      playerScore++;
-    } else if (round.includes("You lose")) {
-      computerScore++;
-    }
+  }
+  let computerSelection = computerPlay();
+  let round = playRound(computerSelection, playerSelection);
+  console.log(round);
+  if (round.includes("You win")) {
+    playerScore++;
+  } else if (round.includes("You lose")) {
+    computerScore++;
+  }
 
   let winner;
   if (playerScore < computerScore) {
