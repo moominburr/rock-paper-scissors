@@ -13,12 +13,38 @@
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   -ms-grid-rows: auto;
       grid-template-rows: auto;
-      grid-template-areas: "heading heading heading heading heading heading" "icons icons icons icons icons icons" "display display display display . runningTotal" "btns btns btns btns btns btns";
+      grid-template-areas: "heading heading heading heading heading heading" "icons icons icons icons icons icons" "display display display display display display" "btns btns btns btns btns btns" ". . runningTotal runningTotal . .";
 }
 
 h1 {
   font-family: "Comfortaa", cursive;
   font-size: 4em;
+}
+
+.display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: display;
+  height: 20vh;
+}
+
+.display h2 {
+  font-family: "Lobster Two", cursive;
+  font-size: 3em;
+}
+
+.display h2 span {
+  color: #ff2da0;
 }
 
 .icons {
@@ -38,8 +64,9 @@ h1 {
 .icons .hand-rock,
 .icons .hand-scissors,
 .icons .hand-paper {
-  color: black;
   font-size: 3em;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .heading {
@@ -60,9 +87,71 @@ h1 {
 }
 
 .running-total {
-  -ms-grid-row: 3;
-  -ms-grid-column: 6;
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
   grid-area: runningTotal;
+  height: 15vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+      grid-template-areas: "PLabel CLabel" "PTotal CTotal";
+}
+
+.running-total .player-total, .running-total .computer-total {
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.running-total .player-total {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: PTotal;
+}
+
+.running-total .computer-total {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: CTotal;
+}
+
+.running-total .player-label {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: PLabel;
+}
+
+.running-total .computer-label {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: CLabel;
+}
+
+.running-total .player-label h4, .running-total .computer-label h4 {
+  margin-bottom: 2em;
+}
+
+.running-total .player-label, .running-total .player-total, .running-total .computer-total, .running-total .computer-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Comfortaa", cursive;
+}
+
+.running-total .player-label p, .running-total .player-total p, .running-total .computer-total p, .running-total .computer-label p {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .btns {
@@ -105,11 +194,60 @@ h1 {
           box-shadow: 0 0 5px #ff2da0;
 }
 
-.display {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
-  grid-area: display;
-  height: 20vh;
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  background-color: white;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.popup h2 {
+  font-family: "Lobster Two", cursive;
+  font-size: 15em;
+  color: #ff2da0;
+}
+
+.popup p {
+  font-family: "Comfortaa", cursive;
+  margin-top: 4em;
+}
+
+.popup button {
+  color: black;
+  font-size: 3em;
+  background-color: white;
+  border: none;
+  padding: 2em;
+  cursor: pointer;
+}
+
+.active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.pink {
+  color: #ff2da0;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 /*# sourceMappingURL=style.css.map */

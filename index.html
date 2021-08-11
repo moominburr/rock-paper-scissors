@@ -19,15 +19,24 @@
         <i class="fas fa-hand-rock hand-rock"></i><i class="fas fa-hand-paper hand-paper"></i
         ><i class="fas fa-hand-scissors hand-scissors"></i>
       </div>
-      <div class="display"></div>
+      <div class="display"><h2 class="displayString"></h2></div>
       <div class="btns">
-        <div class="btn-rock">Rock</div>
-        <div class="btn-paper">Paper</div>
-        <div class="btn-scissors">Scissors</div>
+        <div data-key="rock" class="btn-rock btn">Rock</div>
+        <div data-key="paper" class="btn-paper btn">Paper</div>
+        <div data-key="scissors" class="btn-scissors btn">Scissors</div>
       </div>
-      <div class="running-total"></div>
+      <div class="running-total">
+        <div class="player-label"><h4>Player Total</h4></div>
+        <div class="player-total"><p id="player-total"></p></div>
+        <div class="computer-label"><h4>Computer Total</h4></div>
+        <div class="computer-total"><p id="computer-total"></p></div>
+      </div>
     </div>
-    <div class="popup"></div>
+    <div class="popup">
+      <h2 class="winnerString">Winner</h2>
+      <p class="winnerDetails">You won 5 games, the computer won 0.</p>
+      <button id="reset"><i class="fas fa-redo"></i></button>
+    </div>
   </body>
   <script src="/script.js"></script>
   <script src="https://kit.fontawesome.com/a139138623.js" crossorigin="anonymous"></script>
