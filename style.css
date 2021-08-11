@@ -16,9 +16,24 @@
       grid-template-areas: "heading heading heading heading heading heading" "icons icons icons icons icons icons" "display display display display display display" "btns btns btns btns btns btns" ". . runningTotal runningTotal . .";
 }
 
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "heading heading heading" "icons icons icons" "display display display" "btns btns btns" "runningTotal runningTotal runningTotal";
+  }
+}
+
 h1 {
   font-family: "Comfortaa", cursive;
   font-size: 4em;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
 }
 
 .display {
@@ -31,6 +46,10 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   -ms-grid-column-span: 6;
@@ -38,9 +57,23 @@ h1 {
   height: 20vh;
 }
 
+@media screen and (max-width: 768px) {
+  .display {
+    height: 10vh;
+  }
+}
+
 .display h2 {
   font-family: "Lobster Two", cursive;
   font-size: 3em;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+@media screen and (max-width: 600px) {
+  .display h2 {
+    font-size: 1.8em;
+  }
 }
 
 .display h2 span {
@@ -86,6 +119,12 @@ h1 {
   height: 30vh;
 }
 
+@media screen and (max-width: 768px) {
+  .heading {
+    height: 20vh;
+  }
+}
+
 .running-total {
   -ms-grid-row: 5;
   -ms-grid-column: 3;
@@ -103,7 +142,8 @@ h1 {
       grid-template-areas: "PLabel CLabel" "PTotal CTotal";
 }
 
-.running-total .player-total, .running-total .computer-total {
+.running-total .player-total,
+.running-total .computer-total {
   border: 1px solid black;
   border-radius: 3px;
 }
@@ -132,11 +172,15 @@ h1 {
   grid-area: CLabel;
 }
 
-.running-total .player-label h4, .running-total .computer-label h4 {
+.running-total .player-label h4,
+.running-total .computer-label h4 {
   margin-bottom: 2em;
 }
 
-.running-total .player-label, .running-total .player-total, .running-total .computer-total, .running-total .computer-label {
+.running-total .player-label,
+.running-total .player-total,
+.running-total .computer-total,
+.running-total .computer-label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -149,7 +193,10 @@ h1 {
   font-family: "Comfortaa", cursive;
 }
 
-.running-total .player-label p, .running-total .player-total p, .running-total .computer-total p, .running-total .computer-label p {
+.running-total .player-label p,
+.running-total .player-total p,
+.running-total .computer-total p,
+.running-total .computer-label p {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -180,18 +227,29 @@ h1 {
   font-family: "Comfortaa", cursive;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
-.btns .btn-rock:hover,
-.btns .btn-paper:hover,
-.btns .btn-scissors:hover {
-  cursor: pointer;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+.btns .btn-rock:active,
+.btns .btn-paper:active,
+.btns .btn-scissors:active {
+  background-color: #ff2da0;
   border-color: #ff2da0;
-  color: #ff2da0;
   -webkit-box-shadow: 0 0 5px #ff2da0;
           box-shadow: 0 0 5px #ff2da0;
+}
+
+@media screen and (min-width: 769px) {
+  .btns .btn-rock:hover,
+  .btns .btn-paper:hover,
+  .btns .btn-scissors:hover {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    border-color: #ff2da0;
+    color: #ff2da0;
+    -webkit-box-shadow: 0 0 5px #ff2da0;
+            box-shadow: 0 0 5px #ff2da0;
+  }
 }
 
 .popup {
@@ -224,6 +282,12 @@ h1 {
   font-family: "Lobster Two", cursive;
   font-size: 15em;
   color: #ff2da0;
+}
+
+@media screen and (max-width: 768px) {
+  .popup h2 {
+    font-size: 6em;
+  }
 }
 
 .popup p {

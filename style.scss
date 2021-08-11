@@ -1,5 +1,5 @@
 $pink: rgb(255, 45, 160);
-$winnerText: 'Lobster Two', cursive;
+$winnerText: "Lobster Two", cursive;
 $bodyText: "Comfortaa", cursive;
 * {
   box-sizing: border-box;
@@ -17,24 +17,48 @@ $bodyText: "Comfortaa", cursive;
     "display display display display display display"
     "btns btns btns btns btns btns"
     ". . runningTotal runningTotal . .";
+  @media screen and (max-width: 768px) {
+    margin: 0;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "heading heading heading"
+      "icons icons icons"
+      "display display display"
+      "btns btns btns"
+      "runningTotal runningTotal runningTotal";
+  }
 }
+
 h1 {
   font-family: $bodyText;
   font-size: 4em;
+  @media screen and (max-width: 600px) {
+    font-size: 2em;
+  }
 }
 .display {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-area: display;
-    height: 20vh;
-    h2{
-        font-family: $winnerText;
-        font-size: 3em;
-        span {
-            color: $pink;
-        }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  grid-area: display;
+  height: 20vh;
+  @media screen and (max-width: 768px) {
+    height: 10vh;
+  }
+  h2 {
+    font-family: $winnerText;
+    font-size: 3em;
+    justify-self: center;
+
+    @media screen and (max-width: 600px) {
+      font-size: 1.8em;
     }
+
+    span {
+      color: $pink;
+    }
+  }
 }
 .icons {
   grid-area: icons;
@@ -54,47 +78,56 @@ h1 {
   justify-content: center;
   align-items: center;
   height: 30vh;
+  @media screen and (max-width: 768px ){
+    height: 20vh;
+  }
 }
 .running-total {
   grid-area: runningTotal;
-    height: 15vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    column-gap: 10px;
-    grid-template-areas: "PLabel CLabel"
+  height: 15vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 10px;
+  grid-template-areas:
+    "PLabel CLabel"
     "PTotal CTotal";
-  .player-total, .computer-total{
+
+  .player-total,
+  .computer-total {
     border: 1px solid black;
     border-radius: 3px;
   }
-  .player-total{
-      grid-area: PTotal;
+  .player-total {
+    grid-area: PTotal;
   }
   .computer-total {
-      grid-area: CTotal;
+    grid-area: CTotal;
   }
   .player-label {
-      grid-area: PLabel;
+    grid-area: PLabel;
   }
-  .computer-label{
-      grid-area: CLabel;
+  .computer-label {
+    grid-area: CLabel;
   }
-  .player-label, .computer-label{
-    h4{
-        margin-bottom: 2em;
+  .player-label,
+  .computer-label {
+    h4 {
+      margin-bottom: 2em;
     }
   }
-  .player-label, .player-total, .computer-total, .computer-label{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: $bodyText;
-      p {
-        transition: all 0.3s;
-      }
+  .player-label,
+  .player-total,
+  .computer-total,
+  .computer-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $bodyText;
+    p {
+      transition: all 0.3s;
+    }
   }
-  
 }
 .btns {
   grid-area: btns;
@@ -110,53 +143,62 @@ h1 {
     padding: 1em 2em;
     font-family: $bodyText;
     transition: all 0.3s;
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.2);
+    cursor: pointer;
+    &:active {
+      background-color: $pink;
       border-color: $pink;
-      color: $pink;
       box-shadow: 0 0 5px $pink;
+    }
+    @media screen and (min-width: 769px) {
+      &:hover {
+        transform: scale(1.2);
+        border-color: $pink;
+        color: $pink;
+        box-shadow: 0 0 5px $pink;
+      }
     }
   }
 }
 .popup {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    transform: scale(0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transform: scale(0);
+  background-color: white;
+  transition: all 0.3s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h2 {
+    font-family: $winnerText;
+    font-size: 15em;
+    color: $pink;
+    @media screen and (max-width: 768px) {
+      font-size: 6em;
+    }
+  }
+  p {
+    font-family: $bodyText;
+    margin-top: 4em;
+  }
+  button {
+    color: black;
+    font-size: 3em;
     background-color: white;
-    transition: all 0.3s ease-in;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
-    h2 {
-        font-family: $winnerText;
-        font-size: 15em;
-        color: $pink;
-    }
-    p{
-        font-family: $bodyText;
-        margin-top: 4em;
-        
-    }
-    button {
-        color: black;
-        font-size: 3em;
-        background-color: white;
-        border: none;
-        padding: 2em;
-        cursor: pointer;
-    }
+    border: none;
+    padding: 2em;
+    cursor: pointer;
+  }
 }
 .active {
-    transform: scale(1);
+  transform: scale(1);
 }
 
 .pink {
-    color: $pink;
-    transform: scale(1.2);
+  color: $pink;
+  transform: scale(1.2);
 }
