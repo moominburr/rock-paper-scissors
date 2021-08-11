@@ -106,6 +106,7 @@ function resetGame() {
   computerTotal = 0;
   playerTotalP.textContent = playerTotal;
   computerTotalP.textContent = computerTotal;
+  displayH2.innerHTML = "";
 }
 function removePink(e) {
   e.target.classList.remove("pink");
